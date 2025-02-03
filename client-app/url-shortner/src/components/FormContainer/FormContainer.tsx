@@ -40,8 +40,9 @@ const FormContainer: React.FunctionComponent<IFormContainerProps> = ({
       {/* Form Container */}
       <div className="rounded-2xl bg-cover bg-center pt-10 md:p-16 relative max-w-3xl w-full">
         <h2 className="text-white font-bold pt-10 xl:text-[48px] lg:text-4xl text-3xl leading-[1.25]">
-          Link Shortener
+          Link <span className="gradi-theme-text">Shortener</span>
         </h2>
+
         <p className="text-white lg:text-xl md:text-lg text-base my-4 font-light">
           Paste your unique link to shorten it
         </p>
@@ -49,16 +50,28 @@ const FormContainer: React.FunctionComponent<IFormContainerProps> = ({
         {/* Input Form */}
         <form onSubmit={handleSubmit} className="w-full p-10">
           <div className="flex flex-col md:flex-row items-stretch gap-[14px] md:max-w-[610px] mx-auto">
-            <input
-              type="text"
-              placeholder="Add your link"
-              required
-              className="w-full lg:min-h-[56px] min-h-[50px] px-4 rounded-lg bg-transparent border-[1px] border-white placeholder:text-cadet-gray text-white focus:ring-risd-blue focus:border-risd-blue outline-none lg:text-base text-sm"
-              value={fullUrl}
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-                setFullUrl(e.target.value)
-              }
-            />
+            <div className="relative w-full group">
+              <input
+                type="text"
+                placeholder="Add your link"
+                required
+                className="w-full lg:min-h-[56px] min-h-[50px] px-4 rounded-lg bg-transparent border-[1px] border-white
+               placeholder:text-cadet-gray text-white focus:outline-none lg:text-base text-sm 
+               transition-all duration-300 group-hover:border-transparent relative z-10"
+                value={fullUrl}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+                  setFullUrl(e.target.value)
+                }
+              />
+              <div
+                className="absolute inset-0 rounded-lg border-[1px] border-transparent 
+                  group-hover:border-none transition-all duration-300 
+                  before:content-[''] before:absolute before:inset-0 before:rounded-lg 
+                  before:bg-grad-theme-135 before:z-[-1] before:opacity-0 
+                  group-hover:before:opacity-100 before:transition-all before:duration-300"
+              ></div>
+            </div>
+
             <button
               type="submit"
               className="bg-risd-blue rounded-lg lg:min-h-[56px] min-h-[50px] px-5 text-white text-base font-semibold hover:scale-105 transition-all duration-300 ease-in-out"

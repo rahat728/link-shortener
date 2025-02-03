@@ -1,0 +1,11 @@
+services:
+  - name: link-shortener-backend
+    type: web
+    runtime: node
+    region: oregon
+    plan: free
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: mongodb+srv://rahat728:NhyJNpPNfWuWZh00@url-shortner-app.ylggo.mongodb.net/?retryWrites=true&w=majority&appName=url-shortner-app
+        sync: false

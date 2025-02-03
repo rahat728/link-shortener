@@ -38,7 +38,7 @@ const DataTable: React.FunctionComponent<IDataTableProps> = ({ data, updateReloa
       {/* Table Container */}
       <div className="relative overflow-x-auto shadow-lg sm:rounded-lg bg-banner p-6 rounded-2xl">
         <table className="w-full text-xs sm:text-sm text-left text-gray-300">
-          <thead className="text-md uppercase text-white bg-gray-900 rounded-lg">
+          <thead className="text-md uppercase text-white bg-gray-800 rounded-lg">
             <tr>
               <th scope="col" className="px-4 sm:px-6 py-3 sm:py-4 w-6/12">Full URL</th>
               <th scope="col" className="px-4 sm:px-6 py-3 sm:py-4 w-3/12">Short URL</th>
@@ -48,14 +48,14 @@ const DataTable: React.FunctionComponent<IDataTableProps> = ({ data, updateReloa
           </thead>
           <tbody>
             {data.map((item) => (
-              <tr key={item._id} className="border-b border-gray-700 hover:bg-gray-800">
+              <tr key={item._id} className="border-b border-gray-900">
                 <td className="px-4 sm:px-6 py-3 break-all">
-                  <Link to={item.fullUrl} target="_blank" rel="noreferrer noopener" className="text-white hover:underline">
+                  <Link to={item.fullUrl} target="_blank" rel="noreferrer noopener" className="text-white hover:text-pink-400">
                     {item.fullUrl}
                   </Link>
                 </td>
                 <td className="px-4 sm:px-6 py-3 break-all">
-                  <Link to={`${serverUrl}/shortUrl/${item.shortUrl}`} target="_blank" rel="noreferrer noopener" className="text-white hover:underline">
+                  <Link to={`${serverUrl}/shortUrl/${item.shortUrl}`} target="_blank" rel="noreferrer noopener" className="text-white hover:text-pink-400">
                     {item.shortUrl}
                   </Link>
                 </td>
