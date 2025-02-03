@@ -13,7 +13,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(
   cors({
-    origin: process.env.CLIENT_URL || "http://localhost:3000",
+    origin: ["http://localhost:3000", "https://link-shortener-frontend.onrender.com"],
     credentials: true,
   })
 );
@@ -21,5 +21,5 @@ app.use(
 app.use("/api/", shortUrl);
 
 app.listen(port, () => {
-  console.log(`Server started succesfully on port : ${port}`);
+  console.log(`Server is running on port ${port}`);
 });
