@@ -15,10 +15,10 @@ const app = (0, express_1.default)();
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
 app.use((0, cors_1.default)({
-    origin: "https://link-shortener-frontend.onrender.com/",
+    origin: ["http://localhost:3000", "https://link-shortener-frontend.onrender.com"],
     credentials: true,
 }));
 app.use("/api/", shrtUrl_1.default);
 app.listen(port, () => {
-    console.log(`Server started succesfully on port : ${port}`);
+    console.log(`Server is running on port ${port}`);
 });
