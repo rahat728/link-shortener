@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import connectDb from "./config/dbConfig";
 import shortUrl from "./routes/shrtUrl";
+
 dotenv.config();
 connectDb();
 
@@ -11,12 +12,21 @@ const port = process.env.PORT || 5001;
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(
-  cors({
-    origin: ["http://localhost:3000", "https://link-shortener-frontend.onrender.com"],
-    credentials: true,
-  })
-);
+
+// CORS configuration
+const allowedOrigins = ["http://localhost:3000", "https://link-shortener-frontend.onrender.com"];
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  },
+  credentials: true,
+}));
+
+app.options("*", cors()); // Preflight requests
 
 app.use("/api/", shortUrl);
 
