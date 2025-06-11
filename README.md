@@ -5,8 +5,7 @@ A **MERN Stack** web application that allows users to shorten long URLs into com
 ## 🚀 Features  
 
 ✅ **Shorten Long URLs** - Generate short, easy-to-share links.   
-✅ **Redirect to Original URL** - Clicking a short link redirects to the full URL.  
-✅ **Analytics Tracking** - Track click counts and statistics.  
+✅ **Redirect to Original URL** - Clicking a short link redirects to the full URL.   
 ✅ **RESTful API** - Fully functional backend with API endpoints.  
 ✅ **MongoDB Storage** - Persistent database for URL management.  
 ✅ **TypeScript Support** - Ensuring robust, maintainable code.  
